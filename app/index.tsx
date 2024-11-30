@@ -1,5 +1,6 @@
 import CustomButton from "@/components/CustomButton";
 import Input from "@/components/Input";
+import { router } from "expo-router";
 import { Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -82,7 +83,10 @@ export default function Index() {
           className="text-white text-sm">
           Don't have an account?
         </Text>
-        <Pressable accessibilityLabel="sign-up" className="ml-1">
+        <Pressable
+          accessibilityLabel="sign-up"
+          className="ml-1"
+          onPress={() => router.navigate("/(sign-up)/phone-number")}>
           <Text className="text-white underline">Sign Up</Text>
         </Pressable>
       </View>
