@@ -15,7 +15,7 @@ export type InputProps = {
   value?: string;
   placeholder: string;
   handleChangeText: (text: string) => void;
-  otherStyles?: string;
+  containerStyle?: string;
   isError?: boolean;
   isErrorText?: string[];
 } & TextInputProps;
@@ -26,7 +26,7 @@ export type InputProps = {
  * @param value - The value of the form field
  * @param placeholder - The placeholder of the form field
  * @param handleChangeText - The function to be called when the text changes
- * @param otherStyles - The other styles for the form field
+ * @param containerStyle - The other styles for the form field
  * @param isError - The flag to show error
  * @param isErrorText - The error text to be shown
  * @returns The form field component
@@ -36,7 +36,7 @@ const Input = ({
   value,
   placeholder,
   handleChangeText,
-  otherStyles,
+  containerStyle,
   isError,
   isErrorText,
   ...props
@@ -46,24 +46,23 @@ const Input = ({
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <View className={`space-y-2 ${otherStyles}`}>
+    <View className={`${containerStyle}`}>
       {title && (
         <Text
           accessibilityLabel="title"
-          className="text-base text-primary font-medium">
+          className="text-base text-white font-medium">
           {title}
         </Text>
       )}
 
-      <View className="w-full p-3 bg-white rounded-xl border border-gray focus:border-primary flex flex-row items-center">
+      <View className="w-full border-b border-gray focus:border-primary flex flex-row items-center">
         <TextInput
-          className="flex-1 text-black text-base"
+          className="flex-1 text-white text-base"
           value={value}
           placeholder={placeholder}
           placeholderTextColor={colorPalette.gray.DEFAULT}
           onChangeText={handleChangeText}
           secureTextEntry={title === "Password" && !showPassword}
-          selectionColor={colorPalette.primary[200]}
           cursorColor={colorPalette.primary.DEFAULT}
           accessibilityLabel="input"
           {...props}
@@ -72,18 +71,19 @@ const Input = ({
         {title === "Password" && (
           <TouchableOpacity
             onPress={() => setShowPassword(!showPassword)}
-            accessibilityLabel="toggle-password">
+            accessibilityLabel="toggle-password"
+            className="mr-2">
             {!showPassword ? (
               <Icon
                 name="Eye"
                 color={colorPalette.gray.DEFAULT}
-                size={screenSize.md}
+                size={screenSize.lg}
               />
             ) : (
               <Icon
                 name="EyeOff"
                 color={colorPalette.gray.DEFAULT}
-                size={screenSize.md}
+                size={screenSize.lg}
               />
             )}
           </TouchableOpacity>

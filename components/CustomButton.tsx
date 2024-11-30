@@ -30,11 +30,11 @@ const CustomButton = ({
   isDisabled,
 }: CustomButtonProps) => {
   const containedButtonVariantClasses =
-    "bg-primary rounded-xl py-3 flex flex-row justify-center items-center";
+    "bg-primary rounded-xl py-2 flex flex-row justify-center items-center";
   const outlinedButtonVariantClasses =
-    "border border-primary rounded-xl py-3 flex flex-row justify-center items-center";
+    "border border-primary rounded-xl py-2 flex flex-row justify-center items-center";
   const textButtonVariantClasses =
-    "py-3 flex flex-row justify-center items-center";
+    "py-2 flex flex-row justify-center items-center";
 
   const containedLabelClasses = "text-white font-semibold text-lg";
   const outlinedLabelClasses = "text-primary font-semibold text-lg";

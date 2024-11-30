@@ -1,83 +1,91 @@
 import CustomButton from "@/components/CustomButton";
-import DateInput from "@/components/DateInput";
 import Input from "@/components/Input";
-import MonthSelect from "@/components/MonthSelect";
-import OTPInput from "@/components/OTPInput";
-import PhoneNumberInput from "@/components/PhoneNumberInput";
-import moment from "moment";
-import { useState } from "react";
-import { View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-  const [countryCode, setCountryCode] = useState<string>("+60");
-  const [phoneNumber, setphoneNumber] = useState<string>("");
-  const [otp, setOtp] = useState<number>(0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-
-  const handlePhoneNumberChange = (text: string) => {
-    setphoneNumber(text);
-    console.log("Phone number: ", countryCode + text);
-
-    setIsButtonDisabled(!(text.length > 6));
-  };
-
-  const handleOTPChange = (newOTP: string[]) => {
-    const otpValue = +newOTP.join("");
-    setOtp(otpValue);
-    setIsButtonDisabled(!(otpValue > 999));
-    console.log("OTP: ", otpValue);
-  };
-
   return (
-    <SafeAreaView className="flex-1 bg-white p-4 flex justify-center">
-      <PhoneNumberInput
-        title="Phone number"
-        value={phoneNumber}
-        placeholder="Enter your phone number"
-        countryCodeValue={setCountryCode}
-        handleChangeText={handlePhoneNumberChange}
-        isError
-        isErrorText={["Phone number is required"]}
-      />
-      <Input
-        title="Email"
-        placeholder="Enter your email"
-        handleChangeText={text => console.log("Email: ", text)}
-        isError
-        isErrorText={["Email is required"]}
-      />
-      <OTPInput
-        onChangeValue={handleOTPChange}
-        length={4}
-        isError
-        isErrorText={["OTP is required"]}
-      />
+    <SafeAreaView className="flex-1 bg-secondary p-4 flex justify-center items-center">
+      <View className="flex-1 w-full flex justify-center items-center">
+        <Image
+          source={require("@/assets/images/icon.png")}
+          className="w-56 h-56"
+        />
 
-      <DateInput
-        dayTitle="Day"
-        monthTitle="Month"
-        yearTitle="Year"
-        handleChangeDate={({ day, month, year }) =>
-          console.log("Date of birth 1: ", day, month, year)
-        }
-        dateFormatValue={date =>
-          console.log("Date of birth 2: ", moment(date).format("MMMM DD, YYYY"))
-        }
-        isError
-        isErrorText={[
-          "Day is required",
-          "Month is required",
-          "Year is required",
-        ]}
-      />
+        <Text className="mt-4 text-2xl text-white font-sfbold">Welcome!</Text>
 
-      <CustomButton
-        title="Get Started"
-        handlePress={() => alert(countryCode + phoneNumber)}
-        containerStyles="mt-4 rounded-full"
-        isDisabled={isButtonDisabled}
-      />
+        <Input
+          title="Email"
+          placeholder="Enter your email"
+          handleChangeText={() => {}}
+          containerStyle="mt-4"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+
+        <Input
+          title="Password"
+          placeholder="Enter your password"
+          handleChangeText={() => {}}
+          containerStyle="mt-4"
+          keyboardType="default"
+          autoCapitalize="none"
+        />
+
+        <Pressable
+          accessibilityLabel="forgot-password"
+          className="self-end mt-6">
+          <Text className="text-white text-sm underline">Forgot Password?</Text>
+        </Pressable>
+
+        <CustomButton
+          title="Login"
+          handlePress={() => {}}
+          containerStyles="mt-6 w-full rounded-full"
+        />
+
+        <View className="w-full flex justify-center items-center mt-6">
+          <Text
+            accessibilityLabel="or"
+            className="text-white text-sm font-medium">
+            Or use one of the following
+          </Text>
+
+          <View className="flex flex-row justify-center items-center mt-4">
+            <Pressable accessibilityLabel="google" className="mr-4">
+              <Image
+                source={require("@/assets/icons/google.png")}
+                className="w-10 h-10"
+              />
+            </Pressable>
+
+            <Pressable accessibilityLabel="apple" className="mr-4">
+              <Image
+                source={require("@/assets/icons/apple.png")}
+                className="w-10 h-10"
+              />
+            </Pressable>
+
+            <Pressable accessibilityLabel="facebook">
+              <Image
+                source={require("@/assets/icons/fb.png")}
+                className="w-10 h-10"
+              />
+            </Pressable>
+          </View>
+        </View>
+      </View>
+
+      <View className="flex flex-row justify-center items-center">
+        <Text
+          accessibilityLabel="forgot-password"
+          className="text-white text-sm">
+          Don't have an account?
+        </Text>
+        <Pressable accessibilityLabel="sign-up" className="ml-1">
+          <Text className="text-white underline">Sign Up</Text>
+        </Pressable>
+      </View>
     </SafeAreaView>
   );
 }
