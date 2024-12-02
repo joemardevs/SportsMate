@@ -48,7 +48,7 @@ const PhoneNumberInput = ({
 }: PhoneNumberInputProps) => {
   const screenSize = useSize();
   const colorPalette = useColorPalette();
-  const [countryCode, setCountryCode] = useState<string>("+60");
+  const [countryCode, setCountryCode] = useState<string>("+44");
   const [showCountryCodeModal, setShowCountryCodeModal] = useState(false);
 
   const handleSelectCountryCode = (code: string) => {
@@ -67,11 +67,11 @@ const PhoneNumberInput = ({
         </Text>
       )}
 
-      <View className="w-full p-3 bg-white rounded-xl border border-gray focus:border-primary flex flex-row items-center">
+      <View className="w-full p-1 bg-white rounded-xl border border-gray focus:border-primary flex flex-row items-center">
         <TouchableOpacity
           accessibilityLabel="button"
           onPress={() => setShowCountryCodeModal(true)}
-          className="pr-3">
+          className="pl-3">
           <View className="flex flex-row items-center">
             <Text className="text-black font-psemibold text-base">
               {countryCode}
@@ -83,16 +83,15 @@ const PhoneNumberInput = ({
             />
           </View>
         </TouchableOpacity>
-        <View className="w-[1px] h-full bg-gray-300 mr-3" />
+        <View className="w-[1px] h-1/2 bg-gray-300 mr-3" />
         <TextInput
           className="flex-1 text-black text-base"
           value={value}
           placeholder={placeholder}
-          placeholderTextColor={colorPalette.gray.DEFAULT}
+          placeholderTextColor="gray"
           onChangeText={handleChangeText}
           keyboardType="numeric"
           maxLength={10}
-          selectionColor={colorPalette.primary[200]}
           cursorColor={colorPalette.primary.DEFAULT}
           inputMode="numeric"
           accessibilityLabel="input"

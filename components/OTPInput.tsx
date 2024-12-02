@@ -67,14 +67,13 @@ const OTPInput = ({
           <TextInput
             key={index}
             ref={ref => (textInputRef.current[index] = ref as TextInput)}
-            className={`text-2xl font-semibold text-center border rounded-lg ${
+            className={`text-2xl font-semibold text-center bg-white border rounded-lg ${
               focusedIndex === index ? "border-primary" : "border-gray"
             }`}
             style={{
               width: Math.round(screenSize.xl * 2),
               height: Math.round(screenSize.xl * 2),
             }}
-            selectionColor={colorPalette.primary[200]}
             cursorColor={colorPalette.primary.DEFAULT}
             value={digit}
             onChangeText={text => handleChange(text, index)}

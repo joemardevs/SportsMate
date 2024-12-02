@@ -16,6 +16,12 @@ const GeolocationSignUpScreen = () => {
         title="Allow"
         containerStyles="w-full rounded-full"
       />
+      <CustomButton
+        variant="text"
+        handlePress={() => console.log("Skip")}
+        title="Skip"
+        containerStyles="w-full rounded-full mt-4"
+      />
     </SafeAreaView>
   );
 };

@@ -5,13 +5,11 @@ import AccountSetupContainer from "./components/AccountSetupContainer";
 
 const BirthdayAccountSetup = ({
   onNext,
-  onPrevious,
   isContinueButtonDisabled,
 }: AccountSetupProps) => {
   return (
     <AccountSetupContainer
       onNext={onNext}
-      onPrevious={onPrevious}
       isContinueButtonDisabled={isContinueButtonDisabled}>
       <View className="flex-1 w-full flex justify-center items-center">
         <Text className="text-2xl text-white font-sfbold">Birthday</Text>
