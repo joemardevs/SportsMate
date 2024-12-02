@@ -41,7 +41,7 @@ export default function Index() {
 
         <CustomButton
           title="Login"
-          handlePress={() => {}}
+          handlePress={() => router.navigate("/(tabs)/explore")}
           containerStyles="mt-6 w-full rounded-full"
         />
 

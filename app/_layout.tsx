@@ -37,6 +37,7 @@ export default function App() {
       }}>
       <Stack.Screen name="index" />
       <Stack.Screen name="(sign-up)" />
+      <Stack.Screen name="(tabs)" />
     </Stack>
   );
 }
