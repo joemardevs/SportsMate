@@ -12,6 +12,7 @@ import {
 import Icon from "./Icon";
 import useSize from "@/hooks/useSize";
 import useColorPalette from "@/hooks/useColorPalette";
+import { AntDesign } from "@expo/vector-icons";
 
 const MONTH_DATA = [
   { id: 1, name: "January" },
@@ -80,15 +81,22 @@ const MonthSelect = ({
 
       <Pressable
         onPress={() => setShowMonthModal(true)}
-        className="w-full p-3 bg-white rounded-xl border border-gray focus:border-primary flex flex-row items-center">
+        className="w-full border-b border-gray focus:border-primary flex flex-row items-center">
         <TextInput
-          className="flex-1 text-black text-base"
+          className="flex-1 text-white text-base"
           value={selectMonth?.name || value}
           placeholder={placeholder}
           placeholderTextColor={colorPalette.gray.DEFAULT}
           editable={false}
           onPress={() => setShowMonthModal(true)}
         />
+        <View className="p-2">
+          <AntDesign
+            name={showMonthModal ? "caretup" : "caretdown"}
+            size={12}
+            color="#FFF"
+          />
+        </View>
       </Pressable>
 
       {isError && (

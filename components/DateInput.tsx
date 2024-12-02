@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import MonthSelect from "./MonthSelect";
 
@@ -63,7 +63,7 @@ const DateInput = ({
       id: 1,
       name: "January",
     },
-    year: "",
+    year: new Date().getFullYear().toString(),
   });
   const [isDayError, setIsDayError] = useState(false);
   const [isYearError, setIsYearError] = useState(false);
@@ -145,7 +145,7 @@ const DateInput = ({
           title={dayTitle as string}
           placeholder={dayPlaceholder || "Day"}
           handleChangeText={handleChangeDay}
-          otherStyles="flex-1 mr-2"
+          containerStyle="flex-1 mr-2"
           keyboardType="numeric"
           maxLength={2}
         />
@@ -159,7 +159,7 @@ const DateInput = ({
           title={yearTitle as string}
           placeholder={yearPlaceholder || "Year"}
           handleChangeText={handleChangeYear}
-          otherStyles="flex-1 mr-2"
+          containerStyle="flex-1 mr-2"
           keyboardType="numeric"
           maxLength={4}
         />
