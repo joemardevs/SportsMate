@@ -15,7 +15,7 @@ const AccountSetupContainer: React.FC<AccountSetupContainerProps> = ({
   isContinueButtonDisabled,
 }) => {
   return (
-    <View className="flex-1 flex justify-center items-center">
+    <View className="flex-1">
       {/* Render the content passed via children */}
       {children}
 
