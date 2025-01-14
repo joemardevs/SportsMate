@@ -68,7 +68,18 @@ const ExploreScreen = () => {
             </Text>
             <MaterialIcons name="verified-user" size={24} color="#2abbda" />
           </View>
-          <Text className="text-white text-base font-sfmedium">Hiking</Text>
+          <Text className="text-white text-base font-sfmedium">Liverpool</Text>
+        </View>
+
+        <View
+          style={{
+            position: "absolute",
+            bottom: 20,
+            right: 20,
+          }}>
+          <View className="bg-white px-4 py-1 rounded-full">
+            <Text className="text-primary text-sm font-sfmedium">Hiking</Text>
+          </View>
         </View>
       </View>
     );
