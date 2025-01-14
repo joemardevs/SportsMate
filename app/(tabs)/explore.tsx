@@ -9,7 +9,12 @@ import {
 } from "react-native";
 import React, { useCallback, useRef } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { Feather, Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+import {
+  Feather,
+  Ionicons,
+  MaterialIcons,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Swiper, type SwiperCardRefType } from "rn-swiper-list";
 
@@ -57,7 +62,12 @@ const ExploreScreen = () => {
             bottom: 20,
             left: 20,
           }}>
-          <Text className="text-white text-2xl font-sfbold">John Doe, 25</Text>
+          <View className="flex flex-row items-center gap-2">
+            <Text className="text-white text-2xl font-sfbold">
+              John Doe, 25
+            </Text>
+            <MaterialIcons name="verified-user" size={24} color="#2abbda" />
+          </View>
           <Text className="text-white text-base font-sfmedium">Hiking</Text>
         </View>
       </View>
