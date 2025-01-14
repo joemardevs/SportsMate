@@ -1,10 +1,13 @@
 import CustomButton from "@/components/CustomButton";
 import Input from "@/components/Input";
+import { useTabsStore } from "@/zustand/tabs.store";
 import { router } from "expo-router";
 import { Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const setTab = useTabsStore(({ setActiveTab }) => setActiveTab);
+
   return (
     <SafeAreaView className="flex-1 bg-secondary p-4 flex justify-center items-center">
       <View className="flex-1 w-full flex justify-center items-center">
@@ -41,7 +44,10 @@ export default function Index() {
 
         <CustomButton
           title="Login"
-          handlePress={() => router.navigate("/(tabs)/dashboard")}
+          handlePress={() => {
+            router.navigate("/(tabs)/dashboard");
+            setTab("dashboard");
+          }}
           containerStyles="mt-6 w-full rounded-full"
         />
 
