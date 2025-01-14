@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, Platform, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -6,7 +13,7 @@ const ChatScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       <View
-        className="flex flex-row items-center justify-between px-2 py-4 rounded-b-[30px] bg-secondary "
+        className="flex flex-row items-center justify-between px-4 py-4 rounded-b-[30px] bg-secondary "
         style={{
           paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 70,
         }}>
@@ -20,9 +27,22 @@ const ChatScreen = () => {
       </View>
 
       <SafeAreaView className="flex-1 bg-white">
-        <View className="flex-1 w-full flex justify-center items-center">
-          <Text className="text-black text-2xl font-bold">Chat Screen</Text>
-        </View>
+        <ScrollView className="p-4">
+          <View className="bg-gray-100 p-4 rounded-2xl">
+            <View className="flex flex-row items-center gap-4">
+              <View className="bg-primary opacity-50 p-6 rounded-full" />
+              <View className="flex-1">
+                <Text className="text-black text-lg font-bold">John Doe</Text>
+                <Text className="text-gray-500 text-base">
+                  Hey! How are you?
+                </Text>
+              </View>
+            </View>
+
+            <Text className="absolute right-2 top-2">13:00</Text>
+            <View className="absolute bottom-2 right-2 bg-primary p-2 rounded-full" />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
