@@ -184,7 +184,7 @@ export const ExploreFilterProvider = ({
             <ScrollView
               className="flex-1 w-full"
               contentContainerStyle={{
-                paddingBottom: 230,
+                paddingBottom: 300,
               }}
               overScrollMode="never"
               showsVerticalScrollIndicator={false}>
@@ -319,6 +319,22 @@ export const ExploreFilterProvider = ({
                 </View>
               </View>
             </ScrollView>
+            <View className="flex flex-row items-center justify-between flex-wrap gap-4 mt-2 absolute bottom-0 left-4 right-4 bg-white pb-4">
+              <Pressable
+                className="bg-white border border-primary p-2 rounded-full flex-1"
+                onPress={closeFilter}>
+                <Text className="text-primary text-base font-sfmedium text-center">
+                  Cancel
+                </Text>
+              </Pressable>
+              <Pressable
+                className="bg-primary p-2 rounded-full flex-1"
+                onPress={() => alert("Apply")}>
+                <Text className="text-white text-base font-sfmedium text-center">
+                  Apply
+                </Text>
+              </Pressable>
+            </View>
           </Animated.View>
         </SafeAreaView>
       )}
