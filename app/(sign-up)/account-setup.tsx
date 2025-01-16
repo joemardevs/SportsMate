@@ -133,7 +133,7 @@ const AccountSetupSignUpScreen = () => {
       />
 
       {/* Step Component */}
-      <View className="flex-1 justify-center items-center mt-8">
+      <View className="flex-1 justify-center items-center mt-8 px-4">
         {cloneElement(currentStep.component, {
           onNext: handleNextStep,
           onPrevious: handlePreviousStep,
