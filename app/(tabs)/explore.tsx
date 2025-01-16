@@ -17,9 +17,11 @@ import {
 } from "@expo/vector-icons";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Swiper, type SwiperCardRefType } from "rn-swiper-list";
+import useExploreFilter from "@/context/ExploreFilterContext";
 
 const ExploreScreen = () => {
   const swiperRef = useRef<SwiperCardRefType>(null);
+  const { openFilter } = useExploreFilter();
 
   const IMAGES: ImageSourcePropType[] = [
     require("@/assets/images/mock/image1.jpg"),
@@ -101,7 +103,10 @@ const ExploreScreen = () => {
             <Text className="text-white text-xl">People Nearby</Text>
 
             <Pressable
-              onPress={() => {}}
+              onPress={() => {
+                openFilter();
+                console.log("Open Filter");
+              }}
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
                 padding: 10,

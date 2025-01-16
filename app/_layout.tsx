@@ -2,6 +2,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { ExploreFilterProvider } from "@/context/ExploreFilterContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -33,14 +34,16 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="(sign-up)" />
-        <Stack.Screen name="(tabs)" />
-      </Stack>
+      <ExploreFilterProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="index" />
+          <Stack.Screen name="(sign-up)" />
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </ExploreFilterProvider>
     </GestureHandlerRootView>
   );
 }

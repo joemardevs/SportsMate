@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./App.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./App.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./context/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -20,16 +25,15 @@ module.exports = {
         gray: {
           DEFAULT: "#f5f5f5",
           100: "#e5e5e5",
-          200: "#c9c9c9"
+          200: "#c9c9c9",
         },
       },
       fontFamily: {
         sfbold: "SF-Pro-Display-Bold",
         sfmedium: "SF-Pro-Display-Medium",
-        sfregular: "SF-Pro-Display-Regular"
+        sfregular: "SF-Pro-Display-Regular",
       },
     },
   },
   plugins: [],
-}
-
+};
